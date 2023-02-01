@@ -10,94 +10,99 @@ import ViewsDialog from "../../../Components/Views Dialog/ViewsDialog";
 import RetweetPopover from "../../../Molecules/Retweet Popover/RetweetPopover";
 import IconFunctionality from "../../../Molecules/Icon Functionality/IconFunctionality";
 import MiddleHomePopover from "../../../Molecules/Middle Home Popover/MiddleHomePopover";
+import { OtherUserDetails } from "../../../Recoil State/OtherUserProfileDetails/OtherUserProfileDetails";
+import { useRecoilValue } from "recoil";
 
-const DoctorStrangeSection = () => {
-  const tweetData = [
-    {
-      photo1: (
-        <Link to="/DoctorStrange">
-          <img
-            style={{ width: "3.5rem", height: "3.5rem", borderRadius: "5px" }}
-            src="https://www.sideshow.com/storage/product-images/909994/doctor-strange_marvel_square.jpg"
-            alt="drstrange1"
-          />
-        </Link>
-      ),
-      photo2: (
-        <img
-          style={{ width: "85%", height: "auto", borderRadius: "10px" }}
-          src="https://giffiles.alphacoders.com/214/214285.gif"
-          alt="drstrange2"
-        />
-      ),
-      title1: "Doctor Strange",
-      title2: "@DoctorStrange",
-      title3: "Never tamper with the spell.",
-    },
-    {
-      photo1: (
-        <Link to="/DoctorStrange">
-          <img
-            style={{ width: "3.5rem", height: "3.5rem", borderRadius: "5px" }}
-            src="https://www.sideshow.com/storage/product-images/909994/doctor-strange_marvel_square.jpg"
-            alt="drstrange1"
-          />
-        </Link>
-      ),
-      photo2: (
-        <img
-          style={{ width: "85%", height: "auto", borderRadius: "10px" }}
-          src="https://giffiles.alphacoders.com/214/214285.gif"
-          alt="drstrange2"
-        />
-      ),
-      title1: "Doctor Strange",
-      title2: "@DoctorStrange",
-      title3: "Never tamper with the spell.",
-    },
-    {
-      photo1: (
-        <Link to="/DoctorStrange">
-          <img
-            style={{ width: "3.5rem", height: "3.5rem", borderRadius: "5px" }}
-            src="https://www.sideshow.com/storage/product-images/909994/doctor-strange_marvel_square.jpg"
-            alt="drstrange1"
-          />
-        </Link>
-      ),
-      photo2: (
-        <img
-          style={{ width: "85%", height: "auto", borderRadius: "10px" }}
-          src="https://giffiles.alphacoders.com/214/214285.gif"
-          alt="drstrange2"
-        />
-      ),
-      title1: "Doctor Strange",
-      title2: "@DoctorStrange",
-      title3: "Never tamper with the spell.",
-    },
-    {
-      photo1: (
-        <Link to="/DoctorStrange">
-          <img
-            style={{ width: "3.5rem", height: "3.5rem", borderRadius: "5px" }}
-            src="https://www.sideshow.com/storage/product-images/909994/doctor-strange_marvel_square.jpg"
-            alt="drstrange1"
-          />
-        </Link>
-      ),
-      photo2: (
-        <img
-          style={{ width: "85%", height: "auto", borderRadius: "10px" }}
-          src="https://giffiles.alphacoders.com/214/214285.gif"
-          alt="drstrange2"
-        />
-      ),
-      title1: "Doctor Strange",
-      title2: "@DoctorStrange",
-      title3: "Never tamper with the spell.",
-    },
-  ];
+const OtherProfile = () => {
+
+  const otherUserDetailsRead = useRecoilValue(OtherUserDetails)
+
+  // const tweetData = [
+  //   {
+  //     photo1: (
+  //       <Link to="/DoctorStrange">
+  //         <img
+  //           style={{ width: "3.5rem", height: "3.5rem", borderRadius: "5px" }}
+  //           src="https://www.sideshow.com/storage/product-images/909994/doctor-strange_marvel_square.jpg"
+  //           alt="drstrange1"
+  //         />
+  //       </Link>
+  //     ),
+  //     photo2: (
+  //       <img
+  //         style={{ width: "85%", height: "auto", borderRadius: "10px" }}
+  //         src="https://giffiles.alphacoders.com/214/214285.gif"
+  //         alt="drstrange2"
+  //       />
+  //     ),
+  //     title1: "Doctor Strange",
+  //     title2: "@DoctorStrange",
+  //     title3: "Never tamper with the spell.",
+  //   },
+  //   {
+  //     photo1: (
+  //       <Link to="/DoctorStrange">
+  //         <img
+  //           style={{ width: "3.5rem", height: "3.5rem", borderRadius: "5px" }}
+  //           src="https://www.sideshow.com/storage/product-images/909994/doctor-strange_marvel_square.jpg"
+  //           alt="drstrange1"
+  //         />
+  //       </Link>
+  //     ),
+  //     photo2: (
+  //       <img
+  //         style={{ width: "85%", height: "auto", borderRadius: "10px" }}
+  //         src="https://giffiles.alphacoders.com/214/214285.gif"
+  //         alt="drstrange2"
+  //       />
+  //     ),
+  //     title1: "Doctor Strange",
+  //     title2: "@DoctorStrange",
+  //     title3: "Never tamper with the spell.",
+  //   },
+  //   {
+  //     photo1: (
+  //       <Link to="/DoctorStrange">
+  //         <img
+  //           style={{ width: "3.5rem", height: "3.5rem", borderRadius: "5px" }}
+  //           src="https://www.sideshow.com/storage/product-images/909994/doctor-strange_marvel_square.jpg"
+  //           alt="drstrange1"
+  //         />
+  //       </Link>
+  //     ),
+  //     photo2: (
+  //       <img
+  //         style={{ width: "85%", height: "auto", borderRadius: "10px" }}
+  //         src="https://giffiles.alphacoders.com/214/214285.gif"
+  //         alt="drstrange2"
+  //       />
+  //     ),
+  //     title1: "Doctor Strange",
+  //     title2: "@DoctorStrange",
+  //     title3: "Never tamper with the spell.",
+  //   },
+  //   {
+  //     photo1: (
+  //       <Link to="/DoctorStrange">
+  //         <img
+  //           style={{ width: "3.5rem", height: "3.5rem", borderRadius: "5px" }}
+  //           src="https://www.sideshow.com/storage/product-images/909994/doctor-strange_marvel_square.jpg"
+  //           alt="drstrange1"
+  //         />
+  //       </Link>
+  //     ),
+  //     photo2: (
+  //       <img
+  //         style={{ width: "85%", height: "auto", borderRadius: "10px" }}
+  //         src="https://giffiles.alphacoders.com/214/214285.gif"
+  //         alt="drstrange2"
+  //       />
+  //     ),
+  //     title1: "Doctor Strange",
+  //     title2: "@DoctorStrange",
+  //     title3: "Never tamper with the spell.",
+  //   },
+  // ];
 
   return (
     <div className={styles.ProfileMainContainer}>
@@ -113,11 +118,11 @@ const DoctorStrangeSection = () => {
               }}
             />
           </Link>
-          Doctor Strange
+          {otherUserDetailsRead.title1}
         </h3>
         <p className={styles.ProfileHeadingParaContainer}>0 Tweets</p>
       </div>
-      <span className={styles.ProfilePhotoContainer}>Photo will be here</span>
+      <span className={styles.ProfilePhotoContainer}>{otherUserDetailsRead.photo}</span>
       <div className={styles.ProfileDetailsContainer}>
         <p
           style={{
@@ -128,7 +133,7 @@ const DoctorStrangeSection = () => {
             fontWeight: "bolder",
           }}
         >
-          Doctor Strange
+        {otherUserDetailsRead.title1}
         </p>
         <p
           style={{
@@ -138,7 +143,7 @@ const DoctorStrangeSection = () => {
             fontSize: "0.96rem",
           }}
         >
-          @DoctorStrange
+        {otherUserDetailsRead.title2}
         </p>
         <div
           style={{
@@ -209,7 +214,8 @@ const DoctorStrangeSection = () => {
         className={styles.MiddleHomeTweetBoxContainer}
         style={{ border: "0.1px solid gainsboro" }}
       >
-        {tweetData.map((button, index) => (
+        {/*
+          tweetData.map((button, index) => (
           <button
             key={index}
             className={styles.MiddleHomeTweetBoxButtonContainer}
@@ -218,7 +224,7 @@ const DoctorStrangeSection = () => {
               <div style={{ display: "flex" }}>
                 <div style={{ margin: "0.7rem", cursor: "pointer" }}>
                   {" "}
-                  {button.photo1}
+                  {}
                 </div>
                 <div
                   style={{
@@ -299,24 +305,12 @@ const DoctorStrangeSection = () => {
               <ViewsDialog />
             </div>
           </button>
-        ))}
-        <img
-          style={{
-            height: "7.9rem",
-            width: "7.9rem",
-            border: "4px solid white",
-            borderRadius: "555px",
-            position: "relative",
-            right: "13.25rem",
-            bottom: "129.3rem",
-            cursor: "pointer",
-          }}
-          src="https://www.sideshow.com/storage/product-images/909994/doctor-strange_marvel_square.jpg"
-          alt="snub"
-        ></img>
+        ))*/
+      }
+        
       </div>
     </div>
   );
 };
 
-export default DoctorStrangeSection;
+export default OtherProfile;

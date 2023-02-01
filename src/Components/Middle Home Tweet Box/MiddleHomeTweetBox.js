@@ -15,10 +15,14 @@ import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import Buttons from "../../Molecules/Buttons/Buttons";
 import { useRecoilState } from "recoil";
 
+
 const MiddleHomeTweetBox = () => {
   const [tweetData, setTweetData] = useRecoilState(homeAtom);
+  const [tweet , swtTweet] = useState("")
   const [image, setImage] = useState(null);
   const fileInputRef = useRef(null);
+
+console.log(image , "i am set image")
 
   const handleImageUpload = (event) => {
     setImage(URL.createObjectURL(event.target.files[0]));
@@ -32,48 +36,54 @@ const MiddleHomeTweetBox = () => {
   let userName = JSON.parse(localStorage.getItem("list"));
   console.log(userName);
 
-  const [newTweetData, setNewTweetData] = useState({
-    photo1: (
-      <img
-        style={{ width: "3.5rem", height: "3.5rem", borderRadius: "5px" }}
-        src="https://i.guim.co.uk/img/media/ef8492feb3715ed4de705727d9f513c168a8b196/37_0_1125_675/master/1125.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=d456a2af571d980d8b2985472c262b31"
-        alt="boredapephoto"
-      />
-    ),
-    photo2: (
-      <img
-        style={{ width: "85%", height: "auto", borderRadius: "10px" }}
-        src={image || ""}
-        alt=""
-      />
-    ),
-    title1: "Sushant Hire",
-    title2: `@${userName[0].Username}`,
-    title3: "",
-  });
+  // const [newTweetData, setNewTweetData] = useState(
+  //   {
+  //   photo1: (
+  //     <img
+  //       style={{ width: "3.5rem", height: "3.5rem", borderRadius: "5px" }}
+  //       src="https://i.guim.co.uk/img/media/ef8492feb3715ed4de705727d9f513c168a8b196/37_0_1125_675/master/1125.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=d456a2af571d980d8b2985472c262b31"
+  //       alt="boredapephoto"
+  //     />
+  //   ),
+  //   photo2: (
+  //     <img
+  //       style={{ width: "85%", height: "auto", borderRadius: "10px" }}
+  //       src={image || ""}
+  //       alt=""
+  //     />
+  //   ),
+  //   title1: "Sushant Hire",
+  //   title2: `@${userName[0].Username}`,
+  //   title3: "",
+  // });  cr tm pr nirbhar hai ki sb ki jaan karoge na tm sb ki naiya paar....@ye data bkwas badal do
+  
 
   function handleSubmit() {
-    setTweetData([newTweetData, ...tweetData]);
-    setNewTweetData({
-      photo1: (
-        <img
-          style={{ width: "3.5rem", height: "3.5rem", borderRadius: "5px" }}
-          src="https://i.guim.co.uk/img/media/ef8492feb3715ed4de705727d9f513c168a8b196/37_0_1125_675/master/1125.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=d456a2af571d980d8b2985472c262b31"
-          alt="drstrange1"
-        />
-      ),
-      photo2: (
-        <img
-          style={{ width: "85%", height: "auto", borderRadius: "10px" }}
-          src={image || ""}
-          alt=""
-        />
-      ),
-      title1: "Sushant Hire",
-      title2: `@${userName[0].Username}`,
-      title3: "",
-    });
+    setTweetData([
+      {
+        photo1: (
+          <img
+            style={{ width: "3.5rem", height: "3.5rem", borderRadius: "5px" }}
+            src="https://i.guim.co.uk/img/media/ef8492feb3715ed4de705727d9f513c168a8b196/37_0_1125_675/master/1125.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=d456a2af571d980d8b2985472c262b31"
+            alt="boredapephoto"
+          />
+        ),
+        photo2: (
+          <img
+            style={{ width: "85%", height: "auto", borderRadius: "10px" }}
+            src={image || ""}
+            alt=""
+          />
+        ),
+        title1: "Sushant Hire",
+        title2: `@${userName[0].Username}`,
+        title3: tweet,
+      },...tweetData
+
+    ])
+   
     setImage("");
+    swtTweet("")
   }
 
   return (
@@ -90,9 +100,10 @@ const MiddleHomeTweetBox = () => {
         <input
           className={styles.MiddleHomeUserTweetBoxInput}
           placeholder="What's happening?"
-          value={newTweetData.title3}
+          value={tweet}
           onChange={(e) =>
-            setNewTweetData({ ...newTweetData, title3: e.target.value })
+            swtTweet(e.target.value)
+           
           }
         />
         <input

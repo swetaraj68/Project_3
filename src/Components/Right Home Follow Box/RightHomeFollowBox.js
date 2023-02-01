@@ -1,18 +1,20 @@
 import React, { useState } from "react";
 import styles from "./RightHomeFollowBox.module.css";
 import FollowButton from "../../Molecules/Follow Button/FollowButton";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
+import { OtherUserDetails } from "../../Recoil State/OtherUserProfileDetails/OtherUserProfileDetails";
+import { useSetRecoilState } from "recoil";
 
 const whotofollowData = [
   {
     photo: (
-      <Link to="/DoctorStrange">
+     
         <img
           style={{ width: "3.5rem", height: "3.5rem", borderRadius: "5px" }}
           src="https://www.sideshow.com/storage/product-images/909994/doctor-strange_marvel_square.jpg"
           alt="drstrange"
         />
-      </Link>
+  
     ),
     title1: "Doctor Strange ",
     title2: "@DoctorStrange",
@@ -20,13 +22,13 @@ const whotofollowData = [
   },
   {
     photo: (
-      <Link to="/ScarletWitch">
+     
         <img
           style={{ width: "3.5rem", height: "3.5rem", borderRadius: "5px" }}
           src="https://www.sideshow.com/storage/product-images/909698/scarlet-witch_marvel_square.jpg"
           alt="scarletwitch"
         />
-      </Link>
+    
     ),
     title1: "Scarlet Witch",
     title2: "@ScarletWitch",
@@ -34,13 +36,13 @@ const whotofollowData = [
   },
   {
     photo: (
-      <Link to="/SpiderMan">
+     
         <img
           style={{ width: "3.5rem", height: "3.5rem", borderRadius: "5px" }}
           src="https://im.rediff.com/300-300/movies/2019/jul/08spider-man1.jpg"
           alt="spidey"
         />
-      </Link>
+     
     ),
     title1: "Spider Man",
     title2: "@SpiderMan",
@@ -72,12 +74,19 @@ const RightHomeFollowBox = () => {
     }
     setFollow(whotofollowData);
   }
+const setUserDetails = useSetRecoilState(OtherUserDetails)
+const navigate = useNavigate()
+  function redirectToOtherProfilePage(button) {
+    console.log(button , " i am from who to foloe sec")
+    setUserDetails(button)
+    navigate('/otherUserProfile')
+  }
   return (
     <div className={styles.FollowBoxMainContainer}>
       <h3 className={styles.FollowBoxHeadingContainer}>Who to follow</h3>
       {Follows.map((button, index) => (
         <button key={index} className={styles.FollowBoxButtonContainer}>
-          <div style={{ marginLeft: "0.5rem" }}> {button.photo}</div>
+          <div onClick={()=>redirectToOtherProfilePage(button)} style={{ marginLeft: "0.5rem" }}> {button.photo}</div>
           <div className={styles.FollowBox}>
             <div style={{ fontWeight: "bold" }}> {button.title1}</div>
             <div> {button.title2}</div>
